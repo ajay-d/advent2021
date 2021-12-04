@@ -1,5 +1,4 @@
 import numpy as np
-from numpy.core.fromnumeric import compress
 import pandas as pd
 
 x = np.loadtxt('day3.txt', dtype=(np.dtype(str)))
