@@ -26,7 +26,7 @@ depth = 0
 horizon = 0
 for i in range(df.shape[0]):
     if(df.dir[i] == 'down'):
-        aim = aim + df.len[i]
+        aim += df.len[i]
     if(df.dir[i] == 'up'):
         aim = aim - df.len[i]
     if(df.dir[i] == 'forward'):
