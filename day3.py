@@ -36,3 +36,54 @@ int(epsilon, base=2)
 print(int(gamma, base=2) * int(epsilon, base=2))
 
 #####
+
+#start with 1 and most common bits
+arr = x
+bit = 0
+idx = np.arange(1000)
+#while bit < 5:
+while len(arr) > 1:
+    idx_0 = []
+    idx_1 = []
+    for i in range(len(arr)):
+        if arr[i][bit] == '0':
+            idx_0.append(i)
+        else:
+            idx_1.append(i)
+    if len(idx_0) > len(idx_1):
+        idx = idx_0
+    elif len(idx_0) < len(idx_1):
+        idx = idx_1
+    else:
+        idx = idx_1
+    print(len(idx))
+    arr = arr[idx]
+    bit += 1
+
+o2 = int(arr[0], base=2)
+
+arr = x
+bit = 0
+idx = np.arange(1000)
+#while bit < 5:
+while len(arr) > 1:
+    idx_0 = []
+    idx_1 = []
+    for i in range(len(arr)):
+        if arr[i][bit] == '0':
+            idx_0.append(i)
+        else:
+            idx_1.append(i)
+    if len(idx_0) > len(idx_1):
+        idx = idx_1
+    elif len(idx_0) < len(idx_1):
+        idx = idx_0
+    else:
+        idx = idx_0
+    print(len(idx))
+    arr = arr[idx]
+    bit += 1
+
+co2 = int(arr[0], base=2)
+
+print(o2 * co2)
