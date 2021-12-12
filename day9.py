@@ -14,6 +14,7 @@ for i in range(v):
         m[i,j] = np.int64(x[i][j])
 
 m.shape
+np.unique(m, return_counts=True)
 
 arr = []
 for i in range(v):
@@ -85,11 +86,6 @@ for i in range(v):
                 arr.append((i,j))
 len(arr)
 
-#For each min, collect all non-9 adjacent points
-arr = arr[100:105]
-for pt in arr:
-    print(pt)
-
 #function to find all of a points neighbors
 def find_neighbors(pt):
     i,j = pt
@@ -137,12 +133,20 @@ def find_neighbors(pt):
         n.append((i,j-1))
         return n
 
-find_neighbors(arr[0])
-
+basin_len = []
 for pt in arr:
     print(pt)
     n = find_neighbors(pt)
-    i = 0
+    basin = []
+    basin.append(pt)
+    pt_val = m[pt]
     while len(n) > 1:
-        cur = n[i]
-        if m[cur] < 9 and 
+        cur = n.pop()
+        if m[cur] < 9 and m[cur] > pt_val and cur not in basin:
+            basin.append(cur)
+            toadd = set(find_neighbors(cur)).difference(set(basin))
+            n.extend(toadd)
+    basin_len.append(len(basin))
+
+basin_len.sort()
+101*94*93
